@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <title>Fun with APIs</title>
+</head>
+<body>
+    <!-- <header class="header">
+        Welcome to the quiz game
+    </header> -->
+
+    <div class="container"> 
+        <header class="header">Welcome to the quiz game</header>
+        <div class="rules">
+            <p>
+                Here are the rules:
+            </p>
+            <ol>
+                <li>There is a 20 second time limit for the entire quiz</li>
+                <li>You must hit "Next" to move to the next question</li>
+                <li>Wrong answers will subtract 5 seconds from the time limit</li>
+                <li>No cheating</li>
+            </ol>
+        </div>
+        
+        
+        <div id="questionContainer" class="hide">
+            <div class="controls">
+                <button id="startButton" class="startButton btn">Start</button>
+            </div>
+            <div class="question" id="question">Question</div>
+
+            <div id="answerbuttons" class="buttonGrid">
+                <button class="btn">Answer 1</button>
+                <button class="btn">Answer 2</button> 
+                <button class="btn">Answer 3</button> 
+                <button class="btn">Answer 4</button> 
+            </div>
+        </div>
+        <div class="controls">
+
+            <button id="nextButton" class="nextButton btn">Next</button>
+        </div> 
+        <div class="timer">
+            20 seconds
+        </div>
+    </div>
+</body>
+<script src="./assets/js/script.js"></script>
+</html>
