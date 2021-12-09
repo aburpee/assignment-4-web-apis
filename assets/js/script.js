@@ -1,47 +1,44 @@
-var startButtonEl = document.getElementById("startButton");
-var questionContainerEl = document.getElementById("questionContainer")
-var questionEl = document.getElementById("question")
-var answerButtonsEl = document.getElementById("answerButtons")
+var aButtonEl = document.querySelector("#a");
+var bButtonEl = document.querySelector("#b");
+var cButtonEl = document.querySelector("#c");
+var dButtonEl = document.querySelector("#d");
+var startButtonEl = document.querySelector("#start");
+var quizContainerEl = document.querySelector(".quizContainer");
+var currentQuestion = 0
+var questionDisplayEL = document.getElementById("question")
 
-startButtonEl.addEventListener("click", startGame);
 
-let currentQuestion
+quizContainerEl.style.display = "none"
 
-function startGame() {
-    console.log("started")
-    currentQuestion = 0
-    nextQuestion()
+
+startButtonEl.addEventListener("click", function(){
+    quizContainerEl.style.display = "block"
+    startButtonEl.style.display = "none"
+    question()
+})
+
+aButtonEl.addEventListener("click", checkUserInput)
+bButtonEl.addEventListener("click", checkUserInput)
+cButtonEl.addEventListener("click", checkUserInput)
+dButtonEl.addEventListener("click", checkUserInput)
+
+function question() {
+    questionDisplayEL.textContent = questionsAnswers[currentQuestion].question
+    aButtonEl.textContent = questionsAnswers[currentQuestion].options[0].text
+    bButtonEl.textContent = questionsAnswers[currentQuestion].options[1].text
+    cButtonEl.textContent = questionsAnswers[currentQuestion].options[2].text
+    dButtonEl.textContent = questionsAnswers[currentQuestion].options[3].text
+    aButtonEl.setAttribute("data-correct", questionsAnswers[currentQuestion].options[0].correct)
+    bButtonEl.setAttribute("data-correct", questionsAnswers[currentQuestion].options[1].correct)
+    cButtonEl.setAttribute("data-correct", questionsAnswers[currentQuestion].options[2].correct)
+    dButtonEl.setAttribute("data-correct", questionsAnswers[currentQuestion].options[3].correct)
 }
 
-function nextQuestion() {
-    showQuestion(questionsAnswers[currentQuestion])
-}
+function checkUserInput() {
+    console.log("button clicked", this)}
 
-function showQuestion(question) {
-    console.log(question.question)
-    questionEl.innerText = question.question
-    question.options.forEach(answer => {
-        var button = document.createElement("button")
-        button.innerText = answer.text
-        console.log(button, "button");
-        button.classList.add('btn')
-        if (answer.correct) {
-            button.dataset.correct = answer.correct
-        }
-        button.addEventListener("click", selectAnswer)
-        // answerButtonsEl.appendChild(button);
-    
-    })
-    
-}
-function selectAnswer(event) {
-
-}
-
-function chooseAnswer() {
-
-}
-
+// setInterval(function(){alert('hello');
+// }, 3000)
 
 var questionsAnswers = [
     {
@@ -84,14 +81,4 @@ var questionsAnswers = [
         
     }
 ]
-
-//structure
-var takeQuiz = function() {
-    
-}
-//user hits button take quiz
-//user selects answer
-//user loses time if answer is wrong
-//user moves to next question
-//build object to store questions and answers
 

@@ -5,49 +5,48 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/css/style.css">
-    <title>Fun with APIs</title>
+    <title>Quiz</title>
 </head>
-<body>
-    <!-- <header class="header">
-        Welcome to the quiz game
-    </header> -->
-
-    <div class="container"> 
-        <header class="header">Welcome to the quiz game</header>
-        <div class="rules">
-            <p>
-                Here are the rules:
-            </p>
-            <ol>
-                <li>There is a 20 second time limit for the entire quiz</li>
-                <li>You must hit "Next" to move to the next question</li>
-                <li>Wrong answers will subtract 5 seconds from the time limit</li>
-                <li>No cheating</li>
-            </ol>
+<body class="bodyContainer">
+    <header class="headerContainer">
+        <h1 class="h1Container">Take a quiz</h1>
+    </header>
+    <div class="submitContainer">
+        <button class="submitButton" id="start">Start</button>
+    </div>
+    <div class="quizContainer">
+        <div class="questionContainer">
+            <h2 id="question">Question</h2>
         </div>
-        
-        
-        <div id="questionContainer" class="hide">
-            <div class="controls">
-                <button id="startButton" class="startButton btn">Start</button>
-            </div>
-            <div class="question" id="question">Question</div>
 
-            <div id="answerbuttons" class="buttonGrid">
-                <button class="btn">Answer 1</button>
-                <button class="btn">Answer 2</button> 
-                <button class="btn">Answer 3</button> 
-                <button class="btn">Answer 4</button> 
+        <div class="answersContainer">
+            <div class="timerContainer">
+                Timer
             </div>
-        </div>
-        <div class="controls">
-
-            <button id="nextButton" class="nextButton btn">Next</button>
-        </div> 
-        <div class="timer">
-            20 seconds
+            <ul id="quizQuestions">
+                <li>
+                    <button data-correct="false" class="answer" id="a"></button>
+                    <label for="a" id="answerA"></label>
+                </li>
+                <li>
+                    <button data-correct="false" class="answer" id="b"></button>
+                    <label for="b" id="answerB"></label>
+                </li>
+                <li>
+                    <button data-correct="false" class="answer" id="c"></button>
+                    <label for="c" id="answerC"></label>
+                </li>
+                <li>
+                    <button data-correct="false" class="answer" id="d"></button>
+                    <label for="d" id="answerD"></label>
+                </li>
+            </ul>
         </div>
     </div>
-</body>
+    <div class="submitContainer">
+        <button class="submitButton" id="submit">Submit</button>
+    </div>
 <script src="./assets/js/script.js"></script>
+</body>
+
 </html>

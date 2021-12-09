@@ -7,61 +7,75 @@ body {
     background-color: coral;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
-.header{
+/* .header{
     display: flex;
     justify-content: center;
 
+} */
+
+.bodyContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: black 5px solid;
+    margin: 5%;
+    /* centers boxes on page */
+    /* align-items: center; */
 }
-.rules {
+.headerContainer{
     display: flex;
     justify-content: center;
+    border: black 5px solid;
+    max-width: 100%;
+    margin: 50px;
+    box-shadow: 0 0.4rem 1.4rem 0 rgba(255,255,0,0.5);
 }
-.container {
-    border: 5xp solid;
-    width: 300px;
-    max-width: 30%;
-    background: cornsilk;
-    padding: 10px;
-    box-shadow: 0 0 10px 2;
-    margin-top: 100px;
-    border-radius: 50px;
-    box-shadow: 0 0 10px 5px;
-}
-.question {
+.quizContainer {
     display: flex;
-    border-color: black;
     justify-content: center;
-    font-size: 30px;
-}
-.buttonGrid {
-    display: grid;
-    grid-template-columns: repeat(2, auto);
-    border-color: black;
-    justify-content: center;
-    gap: 10px;
-    margin: 20px 0;
-}
-.btn {
-    border: 1px solid coral;
-    background-color: greenyellow;
-    border-radius: 30px;
-
-}
-.btn:hover {
-    border-color: black;
-
-}
-
-.controls {
-    display: flex;
-    /* border: 5px solid; */
-    border-color: black;
-    justify-content: center;
+    /* centers boxes on page */
     align-items: center;
+    border: black 5px solid;
+    flex-direction: column;
+    margin: 18px;
 }
-
-.timer {
+.questionContainer {
     display: flex;
     justify-content: center;
-    margin: 20px 0;
+    border: black 5px solid;
+    margin: 15px;
+    padding: 20px;
+    box-shadow: 0 0.4rem 1.4rem 0 rgba(255,255,0,0.5);
+}
+.timerContainer {
+    border: black 5px solid;
+    padding: 10px;
+    margin: 10px;
+    text-align: center;
+    box-shadow: 0 0.4rem 1.4rem 0 rgba(255,255,0,0.5);
+}
+.answersContainer {
+    display: flex;
+    border: black 5px solid;
+    margin: 15px;
+    padding: 40px;
+    flex-direction: column;
+    box-shadow: 0 0.4rem 1.4rem 0 rgba(255,255,0,0.5);
+}
+.answersContainer li {
+    list-style: none;
+    display: flex;
+    /* border: black 5px solid; */
+    margin: 5%;
+    justify-content: left;
+    box-shadow: 0 0.4rem 1.4rem 0 rgba(255,255,0,0.5);
+}
+.submitContainer {
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    border: black 5px solid;
+    margin: 25px;
+    padding: 10px;
+    box-shadow: 0 0.4rem 1.4rem 0 rgba(255,255,0,0.5);
 }
