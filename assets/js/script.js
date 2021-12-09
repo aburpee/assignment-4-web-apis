@@ -6,14 +6,28 @@ var startButtonEl = document.querySelector("#start");
 var quizContainerEl = document.querySelector(".quizContainer");
 var currentQuestion = 0
 var questionDisplayEL = document.getElementById("question")
-
+var score = 0
+var timerObject
+var timerCount = 50
+var timerEl = document.querySelector(".timerContainer")
+var submitEl = document.querySelector(".submitContainer")
+var submitButtonEl = document.querySelector("#submit")
 
 quizContainerEl.style.display = "none"
-
+submitEl.style.display = "none"
 
 startButtonEl.addEventListener("click", function(){
     quizContainerEl.style.display = "block"
     startButtonEl.style.display = "none"
+    timerObject = setInterval(function() {
+        timerEl.innerText = timerCount
+        if(timerCount < 1) {
+            enterScore()
+        }
+        else {
+            timerCount --
+        }
+    }, 1000)
     question()
 })
 
@@ -35,7 +49,41 @@ function question() {
 }
 
 function checkUserInput() {
-    console.log("button clicked", this)}
+    console.log("button clicked", this)
+    var userChoice = this.getAttribute("data-correct")
+    console.log(userChoice);
+    if (userChoice) {
+        score += 10
+    }
+    else {
+        score -= 5
+        timerCount -= 5
+    }
+    if (currentQuestion < questionsAnswers.length - 1) {
+        currentQuestion ++
+        question();
+    }
+    else {
+        enterScore()    
+    }
+}
+
+function enterScore() {
+    quizContainerEl.style.display = "none"
+    submitEl.style.display = "block"
+    clearInterval(timerObject)
+    document.getElementById("scoreDisplay").textContent = "score: " + score + " + time left: " + timerCount +" = "+(score+timerCount)
+    // let previousScore = JSON.parse(localStorage.getItem("codequiz")) || []
+    submitEl.addEventListener("click", function() {
+        var user = document.getElementById("userScore").value
+        // previousScore.push({
+        //     user:user,
+        //     score: score+timerCount
+        // }
+        // )
+        // localStorage.setItem("codequiz", JSON.stringify(previousScore))
+    })
+}
 
 // setInterval(function(){alert('hello');
 // }, 3000)
